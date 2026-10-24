@@ -1,0 +1,83 @@
+<table class="table table-bordered" style="background-color: white;">
+
+    <thead>
+        <tr class="text-center">
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% if request.session.carro %}
+
+            {% for key, value in request.session.carro.items %}
+
+                <tr class="text-center">
+
+                    <td>
+                        {{ value.nome }}
+                    </td>
+
+                    <td>
+                        {{ value.quantidade }}
+                    </td>
+
+                    <td>
+                        <a href="{% url 'carro:Adicionar Produto' key %}"
+                           class="btn btn-success btn-sm">
+                            +
+                        </a>
+
+                        <a href="{% url 'carro:Diminuir Quantidade' key %}"
+                           class="btn btn-danger btn-sm">
+                            -
+                        </a>
+
+                        <a href="{% url 'carro:Deletar Produto' key %}"
+                           class="btn btn-danger btn-sm"
+                           style="padding: 0px 5px;"
+                           title="Deletar produto">
+                            🗑️
+                        </a>
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            <tr>
+                <td colspan="3"
+                    class="text-center"
+                    style="font-weight: bold;">
+                    Total: {{ importe_total_carro }} €
+                </td>
+            </tr>
+
+            <!-- Botão de Fazer Pedido (só aparece se houver produtos no carrinho) -->
+            <tr>
+                <td colspan="3" class="text-center">
+                    <a href="{% url 'pedidos:Processar Pedido' %}"
+   class="btn btn-success">
+    Fazer Pedido
+</a>
+                </td>
+            </tr>
+
+        {% else %}
+
+            <tr>
+                <td colspan="3">
+                    <div class="alert alert-danger text-center"
+                         style="margin-bottom: 0;">
+                        Sem produtos
+                    </div>
+                </td>
+            </tr>
+
+        {% endif %}
+
+    </tbody>
+
+</table>

@@ -1,0 +1,154 @@
+# 🌐 Projeto Web — Django
+
+Projeto desenvolvido durante o curso de Django da **Píldoras Informáticas**, utilizado como prática durante minha jornada de aprendizado em Python, Django e desenvolvimento web.
+
+O projeto foi desenvolvido acompanhando os conteúdos do curso e adaptando partes da aplicação para reforçar os conceitos aprendidos na prática.
+
+---
+
+## 🚀 Funcionalidades
+
+O projeto possui diferentes funcionalidades de um sistema web, incluindo:
+
+- 🔐 Cadastro, login e logout de usuários
+- 🛍️ Catálogo de produtos
+- 📂 Categorias de produtos
+- 🛒 Carrinho de compras
+- ➕ Adição e remoção de produtos do carrinho
+- 🔢 Controle de quantidade de produtos
+- 💰 Cálculo do total do carrinho
+- 📦 Criação de pedidos
+- 🧾 Registro das linhas de cada pedido
+- 📧 Envio de e-mail de confirmação do pedido
+- 📝 Formulário de contato
+- 🖼️ Upload e exibição de imagens dos produtos
+- 🛠️ Gerenciamento de dados através do Django Admin
+
+---
+
+## 📚 O que aprendi
+
+Durante o desenvolvimento deste projeto, pratiquei:
+
+- 🐍 Python aplicado ao desenvolvimento web
+- 🌐 Django
+- 📁 Estrutura de projetos e aplicações Django
+- 🔗 URLs e roteamento
+- 👀 Views
+- 🎨 Templates e Template Language
+- 🧱 Models
+- 🗄️ Banco de dados SQLite
+- 🔄 Migrations
+- 🛠️ Django Admin
+- 🖼️ Arquivos estáticos e arquivos de mídia
+- 📝 Formulários Django
+- 🔐 Autenticação e autorização
+- 🛡️ CSRF
+- 📧 Configuração de envio de e-mails
+- 🔑 Variáveis de ambiente
+- 🧩 Relacionamentos entre Models
+- 🛒 Sessões para armazenamento do carrinho
+- 📦 Organização em diferentes aplicações
+- 🎯 CRUD e manipulação de dados
+- 📊 Consultas e agregações utilizando o ORM do Django
+
+---
+
+## 🏗️ Aplicações
+
+O projeto foi dividido em diferentes aplicações Django:
+
+- `autenticacao_app` — cadastro, login e logout de usuários
+- `blog_app` — categorias e publicações
+- `carro_app` — gerenciamento do carrinho de compras
+- `contato_app` — formulário de contato
+- `loja_app` — produtos, categorias e catálogo da loja
+- `pedidos_app` — criação e gerenciamento de pedidos
+- `projeto_web_app` — estrutura principal do site
+- `servicos_app` — gerenciamento de serviços
+
+---
+
+## 🛒 Fluxo principal da aplicação
+
+O projeto possui um fluxo completo de compra:
+
+```text
+Usuário
+   ↓
+Login
+   ↓
+Loja
+   ↓
+Produtos
+   ↓
+Carrinho
+   ↓
+Finalizar pedido
+   ↓
+Pedido
+   ↓
+Linhas do pedido
+   ↓
+E-mail de confirmação
+```
+
+Os produtos adicionados ao carrinho são armazenados na sessão do usuário. Ao finalizar a compra, os dados são transformados em registros permanentes no banco de dados através dos models `Pedido` e `LinhaPedido`.
+
+---
+
+## 🗄️ Tecnologias utilizadas
+
+- Python
+- Django
+- SQLite
+- HTML
+- CSS
+- Bootstrap
+- Django Templates
+- Django ORM
+- Git
+- GitHub
+
+---
+
+## 🎓 Sobre o projeto
+
+Este projeto representa a **conclusão prática dos conteúdos estudados durante o curso de Django da Píldoras Informáticas**.
+
+Além de acompanhar os exemplos apresentados no curso, utilizei o desenvolvimento do projeto para praticar conceitos importantes de desenvolvimento web e entender melhor como diferentes partes de uma aplicação Django se conectam.
+
+> **Projeto de aprendizado desenvolvido por Ruan Felix como prática e conclusão dos estudos realizados no curso.**
+
+⚠️ Este repositório não representa um certificado oficial emitido pela Píldoras Informáticas.
+
+---
+
+## 📖 Curso
+
+Curso utilizado como base para os estudos:
+
+**Django — Proyecto Web Completo**  
+**Píldoras Informáticas**
+
+🔗 [Curso no YouTube](https://www.youtube.com/playlist?list=PLU8oAlHdN5BmfvwxFO7HdPciOCmmYneAB)
+
+---
+
+## 👨‍💻 Autor
+
+**Ruan Felix**
+
+Estudante de Desenvolvimento de Sistemas — SENAI.
+
+🔗 [GitHub — RuanFelixcode](https://github.com/RuanFelixcode)
+
+---
+
+## 🎓 Estudos concluídos
+
+**Curso:** Django — Proyecto Web Completo  
+**Instituição/Canal:** Píldoras Informáticas  
+**Projeto:** Projeto Web  
+**Status:** ✅ Concluído  
+**Autor:** Ruan Felix

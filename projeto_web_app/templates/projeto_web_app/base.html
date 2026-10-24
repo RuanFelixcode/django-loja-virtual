@@ -1,0 +1,189 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestão de Pedidos</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'projeto_web_app/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="{% static 'projeto_web_app/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{% static 'projeto_web_app/css/gestion.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Bloco de Autenticação / Usuário (com estilo de botões) -->
+    <div style="float: right; margin-right: 50px; margin-top: 15px; color: white;">
+        {% if user.is_authenticated %}
+            <span class="mr-2">Olá, **{{ user.username }}**</span>
+            <a href="{% url 'Encerar Sessao' %}" class="btn btn-sm btn-outline-light">Sair</a>
+        {% else %}
+            <a href="{% url 'Pagina Login' %}" class="btn btn-sm btn-outline-light mr-1">Entrar</a>
+            <a href="{% url 'Autenticar Usuario' %}" class="btn btn-sm btn-light">Registrar</a>
+        {% endif %}
+    </div>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block" style="clear: both;">
+        <span class="site-heading-lower">Gestão de Pedidos</span>
+    </h1>
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+
+        <div class="container">
+
+            <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+               href="{% url 'home' %}">
+                Gestão de Pedidos
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive"
+                    aria-expanded="false"
+                    aria-label="Abrir menu">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item {% if request.path == '/' %} active {% endif %} px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded"
+                           href="{% url 'home' %}">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item {% if request.path == '/servicos/' %} active {% endif %} px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded"
+                           href="{% url 'servicos' %}">
+                            Serviços
+                        </a>
+                    </li>
+
+                    <li class="nav-item {% if request.path == '/loja/' %} active {% endif %} px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded"
+                           href="{% url 'loja' %}">
+                            Loja
+                        </a>
+                    </li>
+
+                    <li class="nav-item {% if request.path == '/contato/' %} active {% endif %} px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded"
+                           href="{% url 'contato' %}">
+                            Contato
+                        </a>
+                    </li>
+
+                    <li class="nav-item {% if '/blog/' in request.path %} active {% endif %} px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded"
+                           href="{% url 'blog' %}">
+                            Blog
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- mudanças de conteúdo -->
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <!-- Rodapé -->
+    <footer class="footer text-faded text-center py-5">
+
+        <div class="container">
+
+            <p class="m-0">
+
+                <a href="#" class="link">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+
+                <a href="#" class="link">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+
+                <a href="#" class="link">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x"></i>
+                        <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+
+            </p>
+
+            <p class="m-0 mbt">
+
+                <a href="#" class="link">
+                    Política de privacidade
+                </a>
+
+                ·
+
+                <a href="#" class="link">
+                    Aviso legal
+                </a>
+
+                ·
+
+                <a href="#" class="link">
+                    Cookies
+                </a>
+
+            </p>
+
+            <p class="m-0 mbt1">
+                &copy; Gestão de Pedidos 2026
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap -->
+    <script src="{% static 'projeto_web_app/vendor/jquery/jquery.min.js' %}"></script>
+
+    <script src="{% static 'projeto_web_app/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

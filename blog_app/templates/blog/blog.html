@@ -1,0 +1,70 @@
+{% extends 'projeto_web_app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <section class="page-section clearfix">
+
+        <div class="container">
+
+            <div class="intro">
+
+                <div class="intro-text text-center bg-faded p-5 rounded">
+
+                    <h2 class="section-heading mb-4">
+
+                        <span class="section-heading-lower">
+                            Categorias
+                        </span>
+
+                    </h2>
+
+                    <div class="row align-items-center">
+
+                        <!-- Texto -->
+                        <div class="col-md-6 text-center">
+
+                            <p class="mb-0">
+                                Encontre o conteúdo que procura.
+                                Escolha uma categoria para visualizar
+                                os posts relacionados.
+                            </p>
+
+                        </div>
+
+                        <!-- Categorias -->
+                        <div class="col-md-6">
+
+                            {% for categoria in categorias %}
+
+                                <a
+                                    href="{% url 'categoria' categoria.id %}"
+                                    class="d-block mb-3 p-3 rounded"
+                                    style="
+                                        text-decoration: none;
+                                        color: inherit;
+                                        background-color: rgba(0, 0, 0, 0.05);
+                                    "
+                                >
+
+                                    <span class="section-heading-upper">
+                                        {{ categoria.nome }}
+                                    </span>
+
+                                </a>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+{% endblock %}

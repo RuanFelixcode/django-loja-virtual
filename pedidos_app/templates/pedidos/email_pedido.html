@@ -1,0 +1,54 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pedido realizado</title>
+</head>
+
+<body>
+
+    <h2>Olá, {{ nome_usuario }}!</h2>
+
+    <p>Seu pedido foi realizado com sucesso.</p>
+
+    <p>
+        <strong>Número do pedido:</strong>
+        {{ pedido.id }}
+    </p>
+
+    <p>
+        <strong>E-mail:</strong>
+        {{ email_usuario }}
+    </p>
+
+    <h3>Produtos do pedido:</h3>
+
+    <ul>
+        {% for linha in linhas_pedido %}
+
+            <li>
+                {{ linha.quantidade }}
+                unidade(s) de
+                {{ linha.produto.nome }}
+
+                - € {{ linha.preco }}
+            </li>
+
+        {% endfor %}
+    </ul>
+
+    <p>
+        <strong>Total:</strong>
+        € {{ pedido.total }}
+    </p>
+
+    <p>
+        Obrigado pela sua compra!
+    </p>
+
+</body>
+
+</html>
+```

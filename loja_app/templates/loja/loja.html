@@ -1,0 +1,59 @@
+{% extends 'projeto_web_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Widget do Carrinho flutuando à direita com verificação de login -->
+    <div style="float: right; width: 30%;">
+        {% if request.user.is_authenticated %}
+            {% include 'carro/widget.html' %}
+        {% else %}
+            <div class="alert alert-danger text-center">Faça login para ver o carrinho</div>
+        {% endif %}
+    </div>
+
+    <!-- Lista de produtos à esquerda -->
+    <div class="row" style="width: 70%;">
+
+        {% for produto in produtos %}
+
+            <div class="col-md-4">
+
+                <div class="card" style="width: 100%; margin: 5px 5px;">
+
+                    {% if produto.imagem %}
+                        <img src="{{ produto.imagem.url }}" class="card-img-top">
+                    {% endif %}
+
+                    <div class="card-body" style="text-align: center;">
+
+                        <h5 class="card-title">
+                            {{ produto.nome }}
+                        </h5>
+
+                        <p class="card-text">
+                            R$ {{ produto.preco }}
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer text-center">
+                        <a href="{% url 'carro:Adicionar Produto' produto.id %}" class="btn btn-success btn-sm">
+                            Adicionar ao carrinho
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

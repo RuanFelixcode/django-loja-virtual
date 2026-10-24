@@ -1,0 +1,51 @@
+{% extends 'projeto_web_app/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% for post in posts %}
+
+        <section class="page-section clearfix">
+            <div class="container">
+                <div class="intro">
+
+                    {% if post.imagem %}
+                        <img
+                            class="intro-img img-fluid mb-3 mb-lg-0 rounded"
+                            src="{{ post.imagem.url }}"
+                            alt="{{ post.titulo }}"
+                            style="width: 50%;"
+                        >
+                    {% endif %}
+
+                    <div class="intro-text text-center bg-faded p-5 rounded">
+
+                        <h2 class="section-heading mb-4">
+
+                            <span class="section-heading-lower">
+                                {{ post.titulo }}
+                            </span>
+
+                            <span class="section-heading-upper">
+                                {{ post.conteudo }}
+                            </span>
+
+                        </h2>
+
+                        <p>
+                            <strong>Autor:</strong> {{ post.autor }}
+                        </p>
+
+                        <p>
+                            <strong>Categoria:</strong> {{ post.categoria }}
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    {% endfor %}
+
+{% endblock %}
